@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<robot name="rur_detailed" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find houseRobo_description)/urdf/materials.xacro" />
+<!--<xacro:include filename="$(find rur_detailed_description)/urdf/rur_detailed.trans" />-->
+
+<xacro:include filename="$(find houseRobo_description)/gazebo/houseRobo_materials.gazebo" />
+<xacro:include filename="$(find houseRobo_description)/gazebo/houseRobo_physics.gazebo" />
+<xacro:include filename="$(find houseRobo_description)/gazebo/houseRobo_plugins.gazebo" />
+
+<link name="main_frame">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.241036 0.196104 0.014483"/>
+    <mass value="0.13"/>
+    <inertia ixx="0.9985" ixz="-0.0545" iyy="1.0000" izx="0.0545" izz="0.9985"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://HouseRobo_urdf/3d_mesh_main_body.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://HouseRobo_urdf/3d_mesh_main_body.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_back_wheel">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.241036 0.196104 0.014483"/>
+    <mass value="0.13"/>
+    <inertia ixx="0.9985" ixz="-0.0545" iyy="1.0000" izx="0.0545" izz="0.9985"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://HouseRobo_urdf/3d_mesh_main_body.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://HouseRobo_urdf/3d_mesh_main_body.stl" scale="0.01 0.01 0.01"/>
+    </geometry>
+  </collision>
+</link>

@@ -1,0 +1,3 @@
+source;share/sllidar_ros2/hook/cmake_prefix_path.ps1
+source;share/sllidar_ros2/hook/cmake_prefix_path.dsv
+source;share/sllidar_ros2/hook/cmake_prefix_path.sh
