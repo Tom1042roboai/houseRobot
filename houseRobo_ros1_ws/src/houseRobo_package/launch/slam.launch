@@ -1,6 +1,6 @@
 <launch>
   <!-- Start robot state publisher -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find your_package)/urdf/your_robot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find houseRobo_package)/urdf/simple_houseRobo.urdf'" />
   
   <!-- Publish TF from URDF (base_link → laser, etc.) -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
@@ -28,5 +28,5 @@
   </node>
 
     <!-- OPTIONAL: RViz viewer -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find your_package)/rviz/slam_config.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_package)/rviz/slam_config.rviz" />
 </launch>

@@ -1,6 +1,6 @@
 <launch>
   <!-- Load robot description from URDF -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find houseRobo_ros1_ws)/src/urdf/simple_houseRobo.urdf'" />
+  <param name="robot_description" command="$(find xacro)/xacro '$(find houseRobo_package)/urdf/simple_houseRobo.urdf'" />
 
   <!-- Publish TFs from URDF -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
@@ -10,17 +10,17 @@
 
   <!-- Sensor drivers (example: LIDAR, IMU, encoders) -->
   <!-- Replace this with your actual sensor drivers -->
-  <include file="$(find houseRobo_ros1_ws)/src/launch/sensors.launch" />
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
 
   <!-- SLAM (e.g., GMapping) -->
-  <include file="$(find houseRobo_ros1_ws)/src/launch/slam.launch" />
+  <include file="$(find houseRobo_package)/launch/slam.launch" />
 
   <!-- Move Base (Navigation stack) -->
-  <include file="$(find houseRobo_ros1_ws)/src/launch/move_base.launch" />
+  <include file="$(find houseRobo_package)/launch/move_base.launch" />
 
   <!-- Frontier-based exploration -->
-  <include file="$(find houseRobo_ros1_ws)/src/launch/explore.launch" />
+  <include file="$(find houseRobo_package)/launch/explore.launch" />
 
   <!-- Optional: RViz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_ros1_ws)/src/rviz/default.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_package)/rviz/default.rviz" />
 </launch>
