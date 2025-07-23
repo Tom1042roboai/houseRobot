@@ -28,5 +28,5 @@
   </node>
 
     <!-- OPTIONAL: RViz viewer -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_package)/rviz/slam_config.rviz" />
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_package)/rviz/slam_config.rviz" /> -->
 </launch>

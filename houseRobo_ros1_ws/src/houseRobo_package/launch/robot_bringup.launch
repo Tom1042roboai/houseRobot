@@ -22,5 +22,5 @@
   <include file="$(find houseRobo_package)/launch/explore.launch" />
 
   <!-- Optional: RViz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_package)/rviz/default.rviz" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_package)/rviz/default.rviz" /> -->
 </launch>
