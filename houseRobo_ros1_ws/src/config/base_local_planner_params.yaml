@@ -4,9 +4,9 @@ DWAPlannerROS:
   # Velocity limits
   max_vel_x: 0.3 # m/s
   min_vel_x: 0.0
-  max_vel_theta: 1.0 # rad/s
+  max_vel_theta: 0.26 # rad/s
   min_vel_theta: 0.0
-  min_in_place_vel_theta: 0.4 # Min angular velocity for in-place rotation when reaching goal heading
+  min_in_place_vel_theta: 0.1 # Min angular velocity for in-place rotation when reaching goal heading
 
   # Acceleration limits
   acc_lim_theta: 2.5
