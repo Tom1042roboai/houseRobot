@@ -1,5 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000630] (sllidar_ros2) JobQueued: {'identifier': 'sllidar_ros2', 'dependencies': OrderedDict([('sllidar_ros2', '/home/heto/houseRobo/houseRobo_ros2_ws/src/install/sllidar_ros2')])}
-[0.000673] (sllidar_ros2) JobStarted: {'identifier': 'sllidar_ros2'}
-[0.072487] (sllidar_ros2) JobEnded: {'identifier': 'sllidar_ros2', 'rc': 0}
-[0.073521] (-) EventReactorShutdown: {}

@@ -1,6 +1,0 @@
-[submodule "houseRobo_ros2_ws/src/sllidar_ros2"]
-	path = houseRobo_ros2_ws/src/sllidar_ros2
-	url = https://github.com/Slamtec/sllidar_ros2
-[submodule "houseRobo_ros1_ws/src/rplidar_ros"]
-	path = houseRobo_ros1_ws/src/rplidar_ros
-	url = https://github.com/robopeak/rplidar_ros
