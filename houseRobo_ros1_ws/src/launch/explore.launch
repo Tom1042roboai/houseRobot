@@ -1,0 +1,10 @@
+<launch>
+  <!-- Launch explore_lite -->
+  <node name="explore" pkg="explore_lite" type="explore" output="screen">
+    <param name="planner_frequency" value="1.0" />
+    <param name="progress_timeout" value="20.0" />
+    <param name="gain_scale" value="1.0" />
+    <param name="frontier_travel_point" value="closest" />
+    <param name="visualize" value="true" />
+  </node>
+</launch>

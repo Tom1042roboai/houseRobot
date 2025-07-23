@@ -1,0 +1,19 @@
+base_local_planner: "dwa_local_planner/DWAPlannerROS"
+
+DWAPlannerROS:
+  # Velocity limits
+  max_vel_x: 0.3 # m/s
+  min_vel_x: 0.0
+  max_vel_theta: 1.0 # rad/s
+  min_vel_theta: 0.0
+  min_in_place_vel_theta: 0.4 # Min angular velocity for in-place rotation when reaching goal heading
+
+  # Acceleration limits
+  acc_lim_theta: 2.5
+  acc_lim_x: 2.5
+  acc_lim_y: 0 # Used only for holonomic robots
+
+  # Goal Tolerances
+  yaw_goal_tolerance: 0.1 # How close the robot's heading must match goal orientation
+  xy_goal_tolerance: 0.2 # How close to match goal position
+  latch_xy_goal_tolerance: true # Once robot reaches goal position, it latches and only rotate to get orientation

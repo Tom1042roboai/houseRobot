@@ -1,0 +1,16 @@
+local_costmap:
+  global_frame: odom
+  robot_base_frame: base_link
+  update_frequency: 5.0
+  publish_frequency: 2.0
+  static_map: false # Robot will keep an updated view for local planning
+  rolling_window: true # Local costmap moves with the robot
+  # Dimensions of local costmap (visible planning area around robot)
+  width: 3.0
+  height: 3.0
+  resolution: 0.05 # Size of each grid cell in meters
+  transform_tolerance: 0.5 # Max delay costmap will wait for TFs between odom and base_link
+
+  plugins:
+    - {name: obstacle_layer,    type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation_layer,   type: "costmap_2d::InflationLayer"}

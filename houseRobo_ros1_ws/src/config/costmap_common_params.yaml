@@ -1,0 +1,30 @@
+robot_radius: 0.30 # Used when navigating around obstacles. Can use footprint for polygon shapes
+
+transform_tolerance: 0.4 # Max delay between TF frames before costmap throws warning
+map_type: costmap # Use standard 2D costmap
+
+obstacle_layer:
+  enabled: true
+  obstacle_range: 3.0 # Max distance to consider obstacles in costmap
+  raytrace_range: 3.5 # Distance for clearing obstacles off costmap (path marked as free)
+  inflation_radius: 0.5 # Extra padding around obstacles to give robot a buffer zone
+  track_unknown_space: true # Used by frontier-based method to find frontier boundaries
+  combination_method: 1
+
+  observation_sources: laser_scan_sensor # List of sensor identifiers
+  laser_scan_sensor: { # For LiDAR sensor
+    sensor_frame: laser,
+    data_type: laserScan,
+    topic: scan,
+    marking: true, # If true sensor will add obstacles to the map
+    clearing: true # If true sensor will remove obstacles from map
+  }
+
+inflation_layer: # Expands objects in costmap to create safety buffers for robot
+  enabled: true
+  cost_scaling_factor: 10 # How quickly cost decreases with distance way from the object
+  inflation_radius: 0.5 # Any obstacle within this distance will incure a cost
+
+static_layer: # Assuming fixed global reference frame
+  enabled: true
+  map_topic: "map" # Topic to subscribe for map data

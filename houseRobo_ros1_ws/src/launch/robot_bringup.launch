@@ -1,0 +1,26 @@
+<launch>
+  <!-- Load robot description from URDF -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find your_robot_package)/urdf/your_robot.urdf.xacro'" />
+
+  <!-- Publish TFs from URDF -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+
+  <!-- Optionally publish joint states -->
+  <!-- <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" /> -->
+
+  <!-- Sensor drivers (example: LIDAR, IMU, encoders) -->
+  <!-- Replace this with your actual sensor drivers -->
+  <!-- <include file="$(find your_robot_package)/launch/sensors.launch" /> -->
+
+  <!-- SLAM (e.g., GMapping) -->
+  <include file="$(find your_robot_package)/launch/slam.launch" />
+
+  <!-- Move Base (Navigation stack) -->
+  <include file="$(find your_robot_package)/launch/navigation.launch" />
+
+  <!-- Frontier-based exploration -->
+  <include file="$(find your_robot_package)/launch/explore.launch" />
+
+  <!-- Optional: RViz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find your_robot_package)/rviz/default.rviz" />
+</launch>

@@ -1,0 +1,10 @@
+# Manages overall behaviour of move_base node: global planning ...
+# local control, costmap management, and recovery behaviors
+shutdown_costmaps: false # costmaps stay active even when robot not planning or moving
+controller_frequency: 10.0 # Rate at which local planner (e.g. DWA) is called (i.e. responsiveness)
+controller_patience: 15.0  # Time that robot will try move before recovery behaviour (e.g. stuck or blocked path)
+planner_frequency: 5.0 # Rate at which global planner is called to replan
+planner_patience: 5.0 # Time that move_base waits for a valid global path before recovery behaviour (e.g. clear costmap)
+conservative_reset_dist: 3.0 # Distance within which obstacles are removed during recovery behaviour
+oscillation_timeout: 10.0 # Time to wait before recovery due to oscillation (i.e. robot stuck, moving back and forth)
+oscillation_distance: 0.2 # Min distance required to consider that the robot is making progress

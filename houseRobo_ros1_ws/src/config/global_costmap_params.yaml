@@ -1,0 +1,12 @@
+global_costmap:
+  global_frame: map # Fixed world or global reference frame
+  robot_base_frame: base_link
+  update_frequency: 5.0 # How often the global costmap updates its internal states
+  publish_frequency: 1.0 # How often the global costmap publishes its data
+  static_map: true # Assuming more fixed global reference frame, it does not move with robot (base_link)
+
+  transform_tolerance: 1.0 # Max delay of valid transform between robot_base_frame and global_frame
+  plugins: # layers to build full costmap, processed in order listed
+    - {name: static_layer,      type: "costmap_2d::StaticLayer"} # Load static map from map topic
+    - {name: obstacle_layer,    type: "costmap_2d::VoxelLayer"} # Marks and clear obstacles as robot moves
+    - {name: inflation_layer,   type: "costmap_2d::InflationLayer"} # Creates buffer zones around objects
