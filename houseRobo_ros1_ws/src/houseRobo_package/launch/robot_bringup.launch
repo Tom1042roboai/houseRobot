@@ -21,6 +21,13 @@
   <!-- Frontier-based exploration -->
   <include file="$(find houseRobo_package)/launch/explore.launch" />
 
+  <!-- ROS Serial (Arduino) -->
+  <!-- Set respawn for if arduino resets-->
+  <node pkg="rosserial_arduino" type="serial_node.py" name="rosserial_node" respawn="true">
+    <param name="port" value="/dev/ttyACM0" />
+    <param name="baud" value="57600" />
+  </node>
+
   <!-- Optional: RViz -->
   <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_package)/rviz/default.rviz" /> -->
 </launch>
