@@ -1,12 +1,12 @@
 #!/bin/bash
 
 echo "[INFO] Saving SLAM map..."
-rosrun map_server map_saver -f ~/maps/final_map
+rosrun map_server map_saver -f ~/ros_files/maps/final_map
 
 sleep 2
 
 echo "[INFO] ROS bag recording..."
-rosbag record -a -o ~/bags/nav_run
+rosbag record -a -o ~/ros_files/bags/nav_run
 
 sleep 5
 
