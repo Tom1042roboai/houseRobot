@@ -1,6 +1,6 @@
 <launch>
   <!-- Node listens to shutdown command from remote laptop -->
-  <node pkg="houseRobo_package" type="shutdown_listener.py" name="shutdown_listener" output="screen"/>
+  <!-- <node pkg="houseRobo_package" type="shutdown_listener.py" name="shutdown_listener" output="screen"/> -->
 
   <!-- Load robot description from URDF -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find houseRobo_package)/urdf/simple_houseRobo.urdf'" />
