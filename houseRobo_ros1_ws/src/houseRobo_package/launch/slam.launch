@@ -1,10 +1,4 @@
 <launch>
-  <!-- Start robot state publisher -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find houseRobo_package)/urdf/simple_houseRobo.urdf'" />
-  
-  <!-- Publish TF from URDF (base_link → laser, etc.) -->
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
-  
   <!-- TF broadcaster for base_link to laser (optional if using robot_state_publisher) -->
   <!-- <node pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link laser 100" /> -->
 
