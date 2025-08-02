@@ -7,8 +7,8 @@ source ~/houseRobo/house_robo_ros1_ws/devel/setup.bash
 # For serial devices to initialize
 sleep 5
 
-export ROS_MASTER_URI=http://192.168.0.50
-export ROS_HOSTNAME=192.168.0.50
+export ROS_MASTER_URI=http://<robot_ip>:11311
+export ROS_HOSTNAME=<robot_ip>
 
 SESSION="robot_startup"
 
