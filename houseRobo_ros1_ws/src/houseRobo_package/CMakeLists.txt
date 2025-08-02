@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   explore_lite
   gmapping
   move_base
+  joint_state_publisher
   robot_state_publisher
   rospy
   rosserial_arduino
