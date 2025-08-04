@@ -61,18 +61,6 @@
   <depend>nav_msgs</depend>
   <depend>tf</depend>
   <depend>geometry_msgs</depend>
-  <build_export_depend>amcl</build_export_depend>
-  <build_export_depend>explore_lite</build_export_depend>
-  <build_export_depend>gmapping</build_export_depend>
-  <build_export_depend>move_base</build_export_depend>
-  <build_export_depend>robot_state_publisher</build_export_depend>
-  <build_export_depend>joint_state_publisher</build_export_depend>
-  <build_export_depend>rospy</build_export_depend>
-  <build_export_depend>rosserial_arduino</build_export_depend>
-  <build_export_depend>std_msgs</build_export_depend>
-  <build_export_depend>nav_msgs</build_export_depend>
-  <build_export_depend>tf</build_export_depend>
-  <build_export_depend>geometry_msgs</build_export_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
