@@ -31,6 +31,9 @@
     <param name="baud" value="57600" />
   </node>
 
+  <!-- Node publishes theoretical values of odom for odom->base_link TF -->
+  <node pkg="houseRobo_package" type="odom_node" name="odom_node" output="screen"/>
+
   <!-- Optional: RViz -->
   <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find houseRobo_package)/rviz/default.rviz" /> -->
 </launch>
