@@ -8,6 +8,8 @@
 #include <nav_msgs/Odometry.h>
 #include <tf/tf.h>
 #include <geometry_msgs/Twist.h>
+#include <geometry_msgs/Quaternion.h>
+#include <geometry_msgs/TransformStamped.h>
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -30,6 +32,7 @@ int main(int argc, char** argv) {
 
     ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("odom", 50); // msg queue size of 50
     ros::Subscriber cmd_vel_sub = nh.subscribe("cmd_vel", 10, vel_callback);
+    tf::TransformBroadcaster odom_broadcaster;
 
     float x = 0.0;
     float y = 0.0;
@@ -64,6 +67,20 @@ int main(int argc, char** argv) {
         float new_theta_decimal = new_theta_factor - floor(new_theta_factor);
         theta = new_theta_decimal * (2 * M_PI);
 
+        // Publish TF transform from odom->base_link
+        geometry_msgs::TransformStamped odom_trans;
+        odom_trans.header.stamp = current_time_ms;
+        odom_trans.header.frame_id = "odom";
+        odom_trans.child_frame_id = "base_link";
+        odom_trans.transform.translation.x = x;
+        odom_trans.transform.translation.y = y;
+        odom_trans.transform.translation.z = 0.0;
+
+        geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(theta);
+        odom_trans.transform.rotation = odom_quat;
+
+        odom_broadcaster.sendTransform(odom_trans);
+
         // Publish odometry message
         nav_msgs::Odometry odom_msg;
         odom_msg.header.stamp = current_time_ms;
@@ -73,8 +90,6 @@ int main(int argc, char** argv) {
         odom_msg.pose.pose.position.x = x;
         odom_msg.pose.pose.position.y = y;
         odom_msg.pose.pose.position.z = 0.0;
-
-        geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(theta);
         odom_msg.pose.pose.orientation = odom_quat;
 
         odom_msg.twist.twist.linear.x = linear_vel_x;
