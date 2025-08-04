@@ -17,6 +17,9 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   rosserial_arduino
   std_msgs
+  nav_msgs
+  tf
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
