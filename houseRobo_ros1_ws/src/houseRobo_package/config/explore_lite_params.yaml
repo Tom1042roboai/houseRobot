@@ -1,0 +1,19 @@
+explore_costmap:
+  costmap_topic: /move_base/global_costmap/costmap
+  costmap_updates_topic: /move_base/global_costmap/costmap_updates
+  
+  # Set the planner to use potentials, this is generally best
+  planner_type: "potential"
+
+  # The frequency at which the planner is called
+  planner_frequency: 1.0 # Hz
+
+  # Timeout in seconds after which the explorer will choose a new goal
+  progress_timeout: 20.0
+
+  # If the robot is stuck, it will try to rotate in place to clear space
+  potential:
+    scale: 1.0 # Influence of distance from current position
+    gain: 1.0  # Influence of potential field from frontiers
+
+  frontier_travel_point: "closest"
