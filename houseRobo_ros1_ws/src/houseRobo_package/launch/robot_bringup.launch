@@ -22,7 +22,7 @@
   <include file="$(find houseRobo_package)/launch/move_base.launch" />
 
   <!-- Frontier-based exploration -->
-  <include file="$(find houseRobo_package)/launch/explore.launch" />
+  <include file="$(find explore_lite)/launch/explore_costmap.launch" />
 
   <!-- ROS Serial (Arduino) -->
   <!-- Set respawn for if arduino resets-->

@@ -19,11 +19,11 @@ float linear_vel_x;
 float angular_vel_z;
 
 // ROS callback function
-void vel_callback(const geometry_msgs::Twist& vel)
+void vel_callback(const geometry_msgs::Vector3& vel)
 {
     //Follows ROS REP 103 convention
-    linear_vel_x = vel.linear.x;
-    angular_vel_z = vel.angular.z;
+    linear_vel_x = vel.x;
+    angular_vel_z = vel.z;
 }
 
 
@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
     ros::NodeHandle nh;
 
     ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("odom", 50); // msg queue size of 50
-    ros::Subscriber cmd_vel_sub = nh.subscribe("cmd_vel", 10, vel_callback);
+    ros::Subscriber cmd_vel_sub = nh.subscribe("ard_vel_vector", 10, vel_callback);
     tf::TransformBroadcaster odom_broadcaster;
 
     float x = 0.0;

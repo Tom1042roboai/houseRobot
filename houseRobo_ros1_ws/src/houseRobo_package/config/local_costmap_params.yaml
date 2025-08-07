@@ -8,7 +8,7 @@ local_costmap:
   # Dimensions of local costmap (visible planning area around robot)
   width: 3.0
   height: 3.0
-  resolution: 0.05 # Size of each grid cell in meters
+  resolution: 0.1 # Size of each grid cell in meters
   transform_tolerance: 0.5 # Max delay costmap will wait for TFs between odom and base_link
 
   plugins:
