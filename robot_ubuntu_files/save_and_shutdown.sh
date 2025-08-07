@@ -11,4 +11,4 @@ rosbag record -a -o ~/ros_files/bags/nav_run
 sleep 5
 
 echo "[INFO] Shutting down robot now..."
-sudo poweroff
+#sudo poweroff

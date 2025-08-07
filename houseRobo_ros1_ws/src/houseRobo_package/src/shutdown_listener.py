@@ -7,7 +7,7 @@ import subprocess
 def callback(msg):
     if msg.data.lower() == "shutdown":
         rospy.loginfo("Shutdown command received!")
-        subprocess.call(["/home/robot_user/save_and_shutdown.sh"])
+        subprocess.call(["/home/ubuntu/save_and_shutdown.sh"])
 
 def listener():
     rospy.init_node('shutdown_listener')
