@@ -17,6 +17,8 @@
 
 float linear_vel_x;
 float angular_vel_z;
+float prev_linear_vel_x;
+float prev_angular_vel_z;
 
 // ROS callback function
 void vel_callback(const geometry_msgs::Vector3& vel)
@@ -49,12 +51,12 @@ int main(int argc, char** argv) {
         float dt = (current_time_ms - prev_time_ms).toSec();
 
         // ROS REP 103 convention, linear_vel_x is the resultant velocity vector (hypotenuse)
-        float robot_vel_x = linear_vel_x * sin(theta);
+        float robot_vel_x = prev_linear_vel_x * sin(theta);
         if (theta > M_PI) {
             robot_vel_x *= -1;
         }
 
-        float robot_vel_y = linear_vel_x * cos(theta);
+        float robot_vel_y = prev_linear_vel_x * cos(theta);
         if ((theta < (0.5 * M_PI)) || (theta > (1.5 * M_PI))) {
             robot_vel_y *= -1;
         }
@@ -62,7 +64,7 @@ int main(int argc, char** argv) {
         // Assuming constant velocity over dt
         x += (robot_vel_x * dt);
         y += (robot_vel_y * dt);
-        float new_theta = theta + (angular_vel_z * dt);
+        float new_theta = theta + (prev_angular_vel_z * dt);
         // Keep theta in range [0, 2*pi] rad, by performing modulo operation
         float new_theta_factor = new_theta / (2 * M_PI);
         float new_theta_decimal = new_theta_factor - floor(new_theta_factor);
@@ -93,12 +95,14 @@ int main(int argc, char** argv) {
         odom_msg.pose.pose.position.z = 0.0;
         odom_msg.pose.pose.orientation = odom_quat;
 
-        odom_msg.twist.twist.linear.x = linear_vel_x;
-        odom_msg.twist.twist.angular.z = angular_vel_z;
+        odom_msg.twist.twist.linear.x = prev_linear_vel_x;
+        odom_msg.twist.twist.angular.z = prev_angular_vel_z;
 
         odom_pub.publish(odom_msg);
 
         prev_time_ms = current_time_ms;
+        prev_linear_vel_x = linear_vel_x;
+        prev_angular_vel_z = angular_vel_z;
         ros::spinOnce();
         r.sleep();
     }
