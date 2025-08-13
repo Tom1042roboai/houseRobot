@@ -7,7 +7,20 @@ In the first stage of the HouseRobot project, I aim to design and build a small 
 - Frontier Exploration
 - Ubuntu for embedded devices
 
+<p align="center">
+  <img src="Robot_pic.png" alt="Robot Image" width="200">
+  <img src="SLAM_map_1.png" alt="Map Image 1" width="265">
+  <img src="SLAM_map_2.png" alt="Map Image 2" width="235">
+  <img src="SLAM_map_3.png" alt="Map Image 3" width="250">
+</p>
+
 ## Hardware
+- Raspberry Pi 4 Computer Model B 2GB RAM
+- RPLIDAR A1M8
+- Arduino UNO R3
+- L293D Motor Driver Shield
+- DFRobot 4WD Mobile Platform for Arduino
+- Power bank with 5V/3A power supply
 
 ## Software Requirements
 
