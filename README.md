@@ -26,7 +26,11 @@ In the first stage of the HouseRobot project, I aim to design and build a small 
 ### Remote Laptop
 - Ubuntu 20.04 LTS WSL2 (Remote Laptop)
 - ROS Noetic
-- RViz
+- ROS Noetic packages:
+  - Rviz
+  - rosserial: https://github.com/ros-drivers/rosserial/tree/noetic-devel
+- Arduino IDE:
+  - rosserial_arduino: generated and copied over from Ubuntu ROS Noetic setup (More details in [Project Setup](#project-setup) section)
 
 ### 4wd Robotic Vehicle
 - Ubuntu Server 20.04 (Robot vehicle)
