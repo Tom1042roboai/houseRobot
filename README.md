@@ -23,6 +23,22 @@ In the first stage of the HouseRobot project, I aim to design and build a small 
 - Power bank with 5V/3A power supply
 
 ## Software Requirements
+### Remote Laptop
+- Ubuntu 20.04 LTS WSL2 (Remote Laptop)
+- ROS Noetic
+- RViz
+
+### 4wd Robotic Vehicle
+- Ubuntu Server 20.04 (Robot vehicle)
+  - GUI components removed to save memory capacity
+- ROS Noetic
+- ROS Noetic Packages:
+  - rplidar_ros: https://github.com/robopeak/rplidar_ros/tree/master
+  - slam_gmapping: https://github.com/ros-perception/slam_gmapping/tree/melodic-devel
+  - openslam_gmapping: https://github.com/ros-perception/openslam_gmapping/tree/melodic-devel
+  - explore_lite: https://github.com/hrnr/m-explore/tree/noetic-devel
+  - rosserial: https://github.com/ros-drivers/rosserial/tree/noetic-devel
+  - navigation stack: sudo apt install ros-noetic-navigation
 
 ## High-level View of Project Components
 
