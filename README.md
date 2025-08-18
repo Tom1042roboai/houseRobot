@@ -45,6 +45,7 @@ In the first stage of the HouseRobot project, I aim to design and build a small 
   - navigation stack: sudo apt install ros-noetic-navigation
 
 ## High-level View of Project Components
+![Alt text](high_level_diagram.png)
 
 ## Project Setup
 
