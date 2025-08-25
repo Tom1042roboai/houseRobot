@@ -30,6 +30,7 @@ In the first stage of the HouseRobot project, I aim to design and build a small 
   - Rviz
   - rosserial: https://github.com/ros-drivers/rosserial/tree/noetic-devel
 - Arduino IDE:
+  - If you want to edit the [houseRobo_control.ino](Arduino/houseRobo_control/houseRobo_control.ino) file
   - rosserial_arduino: generated and copied over from Ubuntu ROS Noetic setup (More details in [Project Setup](#project-setup) section)
 
 ### 4wd Robotic Vehicle
@@ -48,6 +49,23 @@ In the first stage of the HouseRobot project, I aim to design and build a small 
 ![Alt text](high_level_diagram.png)
 
 ## Project Setup
+### Remote Laptop
+1. Install Arduino IDE for the laptop.
+2. Install ROS Noetic on the Ubuntu laptop or terminal.
+3. Install the ROS Noetic packages listed in [Software Requirements](#software-requirements) section.
+4. Copy the [slam_remote_config.rviz.yaml](remote_laptop_files/slam_remote_config.rviz.yaml) file into your Ubuntu environment.
+
+#### Generate rosserial libraries for Arduino IDE (optional)
+If you want to edit and compile the rosserial arduino file.
+
+1. Source your ROS Noetic workspace setup.
+2. Generate rosserial libraries for arduino: The cmd will generate a ros_lib folder.
+```bash
+rosrun rosserial_arduino make_libraries.py
+```  
+3. Copy the ros_lib folder to the Arduino/libraries folder for your Arduino IDE.
+
+### 4wd Robotic Vehicle
 
 ## Run Project
 
