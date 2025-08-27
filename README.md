@@ -16,11 +16,11 @@ In the first stage of the HouseRobot project, I aim to design and build a small 
 
 ## Hardware
 - Raspberry Pi 4 Computer Model B 2GB RAM
-- RPLIDAR A1M8
+- RPLIDAR A1M8 (connects to Raspberry Pi)
 - Arduino UNO R3
-- L293D Motor Driver Shield
+- L293D Motor Driver Shield (connects onto Arduino UNO board)
 - DFRobot 4WD Mobile Platform for Arduino
-- Power bank with 5V/3A power supply
+- Power bank with 5V/3A power supply (powers Raspberry Pi device)
 
 ## Software Requirements
 ### Remote Laptop
@@ -66,6 +66,29 @@ rosrun rosserial_arduino make_libraries.py
 3. Copy the ros_lib folder to the Arduino/libraries folder for your Arduino IDE.
 
 ### 4wd Robotic Vehicle
+#### Software setup
+1. Flash the houseRobo_control.ino image onto the Arduino Uno.
+2. Use the Raspberry Pi Image application to flash an Ubuntu Image onto an SD card for the Raspberry Pi device.
+3. Setup the Ubuntu OS for the Raspberry Pi (requires a keyboard and monitor for the Raspberry Pi device).
+4. Configure the netplan for the Ubuntu system to have a static IP address (we will reference to this as the robot_ip).
+5. Once Ubuntu is setup for the Raspberry Pi device, you can SSH into the device from your laptop remotely to complete the rest of the setup.
+6. Install ROS Noetic on the Ubuntu system.
+7. Source the ROS Noetic setup.
+8. Clone this Github repo.
+9. Install all the listed ROS Noetic Packages for 4wd Robotic Vehicle in the houseRobo_ros1_ws/src folder.
+  - Navigation stack will be installed for the ROS Noetic setup using *sudo apt*.
+  - Clone all the other listed repositories into the folder.
+10. Build all the packages by running the following command in the houseRobo_ros1_ws folder:
+```bash
+catkin_make
+```
+#### Physical setup
+1. Build robot and assemble the components together.
+2. Connect the L293D Motor Driver Shield onto the Arduino UNO board.
+3. Connect the motors to the L293D Motor Driver Shield.
+4. Connect Arduino UNO board to the Raspberry Pi using the Arduino's USB progamming cable.
+5. Connect the RPLIDAR A1 to the Raspberry Pi using a USB Micro-B to Type-A cable.
+6. Power up the Arduino UNO and Raspberry Pi boards.
 
 ## Run Project
 
