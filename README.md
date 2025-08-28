@@ -91,6 +91,41 @@ catkin_make
 6. Power up the Arduino UNO and Raspberry Pi boards.
 
 ## Run Project
+### 4wd Robotic Vehicle
+1. Source the ROS Noetic environment setup.
+2. Set the robot as the RViz server: Replace \<robot_ip\> with the actual static IP address of your robot.
+```bash
+export ROS_MASTER_URI=http://<robot_ip>:11311
+export ROS_HOSTNAME=<robot_ip>
+```
+3. Source the ROS project workspace setup.
+4. Start roscore.
+```bash
+roscore
+```
+5. Open a new terminal window (tmux is convenient to use).
+  - The houseRobo_package will be launched in this window, but it needs the same setup.
+6. Source the ROS Noetic environment setup once again in the new window.
+7. Set the robot as the RViz server using the same commands.
+8. Source the ROS project workspace setup.
+9. Launch the houseRobo_package node:
+```bash
+roslaunch houseRobo_package robot_bringup.launch
+```
+
+### Remote Laptop
+1. Source the ROS Noetic setup.
+2. Set it as the RViz client: Replace \<robot_ip\> and \<laptop_ip\> for the actual IP addresses of your devices.
+```bash
+export ROS_MASTER_URI=http://<robot_ip>:11311
+export ROS_HOSTNAME=<laptop_ip>
+```
+3. Run RViz with the config file: Replace *path/to/* with the actual path to the file.
+```bash
+rviz -d path/to/slam_remote_config.rviz.yaml
+```  
+  
+Now you should see the map and LiDAR scans sent from the robot on the remote laptop.
 
 ## Additional Files In Repo
 
