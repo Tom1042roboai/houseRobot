@@ -128,6 +128,26 @@ rviz -d path/to/slam_remote_config.rviz.yaml
 Now you should see the map and LiDAR scans sent from the robot on the remote laptop.
 
 ## Additional Files In Repo
+### Arduino folder
+- Measure_for_ros.ino
+  - Needed to measure the motor power to velocity mappings for following ROS cmd_vel messages.
+  - There was no more available pins on the Arduino to connect another button due to the L293D motor driver shield connection.
+  - Used the reset button of the Arduino to cycle through 5 power levels, taking 3 measurements at each power level. First cycle is for linear velocity measurements, followed by angular velocity measurements in the second cycle.
+  - Used the EEPROM memory keep track of the stages of the experiment.
+  - Used MAGIC_VALUE stored at a MAGIC_ADDR in EEPROM to determine when a new sketch was programmed and reset the values of the trackers in EEPROM. State of EEPROM memory is indeterminate unless initialized.
+  - After programming, unplugging the Arduino from the laptop, and powering up the Arduino once again, the Arduino performs two resets during this process. Therefore, there is an extra tracker to start the experiment only on the third reset.
+
+### HouseRobo_package/src
+- shutdown_listner.py
+  - The node would spin up when the ROS nodes are launched with the robot_bringup.launch file.
+  - The node would listen for a "shutdown" message sent from the remote laptop and then run the shell script "save_and_shutdown.sh"
+
+### robot_ubuntu_files
+- ros_robot_startup.sh
+  - Used to experiment auto start up of Robot once it powers up or recieves a command from remote laptop.
+  - Feature is incomplete at the moment.
+- save_and_shutdown.sh
+  - Robot does not follow the save and shutdown sequence and needs further debugging.
 
 ## Additional Project Notes
 
