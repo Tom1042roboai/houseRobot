@@ -150,5 +150,23 @@ Now you should see the map and LiDAR scans sent from the robot on the remote lap
   - Robot does not follow the save and shutdown sequence and needs further debugging.
 
 ## Additional Project Notes
+- If get rplidar_ros node service time out when launching houseRobo_package, just reconnect the rplidar to raspberry (pull out the usb and plug in again)
 
 ## Limitations and Future Work
+Follows this structure: (Or the other way round limitation followed by possible solutions)
+- Further work statement or Solution
+  - Limitation that motivates this further work
+### Further extension of stage 1
+- Arduino only had 2KiB, not enough to implement a odom publishing on it.
+  - Very innaccurate, but better than just publishing static transform so can perform mapping
+- Launch Robot with startup robot command from remote laptop. Also for terminating robot.
+- Robot can only drive forward and turn left, excessive unbalanced load on right side wheels, Allow negative values with balanced loads on both sides for all manoeuvres
+- Better building methods for mini-ros car, balanced load distribution and building a more accurate model for ros
+  - To derive accurate power to cmd_vel mapping, more rigorous experimentation method for measuring m/s for each power.
+- Odom measurements from wheel encoder, need board with more pins or any other solutions?
+- Use ROS2, as ROS1 is deprecated and other benefits for ROS2 (like more suitable for production)
+- Computation overload for raspberry pi, have to use LiDAR points of 10 cm, in future can have more precise mapping. This limitation leads to premature termination of exploration algorithm.
+- Full Gazebo simulation of robot
+- More efficient power usage
+### Stage 2 plans
+- Next stage work
