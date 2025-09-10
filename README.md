@@ -153,12 +153,9 @@ Now you should see the map and LiDAR scans sent from the robot on the remote lap
 - If get rplidar_ros node service time out when launching houseRobo_package, just reconnect the Rplidar to the Raspberry Pi (pull out the usb and plug in again).
 
 ## Limitations and Future Work
-Follows this structure: (Or the other way round limitation followed by possible solutions)
-- Further work statement or Solution
-  - Limitation that motivates this further work
-### Further extension of stage 1
+### Further Extensions of Stage 1:
 - No real odom data used
-  - There are no more available pins on the Arduino to connect a wheel encoder after connecting the L293D Motor Driver shield board.
+  - There were no more available pins on the Arduino to connect a wheel encoder after connecting the L293D Motor Driver shield board.
   - The Arduino Uno board only has 2KiB of SRAM and it was not enough to accomodate another ROS node for publishing odom data. Therefore, I had to implement a separate ROS node that runs on the Raspberry Pi for publishing the odom data.
   - I created a ROS cpp node (odom_node.cpp) to calculate and publish theoretical odom values based on the cmd_vel commands executed by the Arduino node.
   - The odom values are very innaccurate as it does not account for the cumulative errors introduced during the control of the robot.
@@ -171,11 +168,17 @@ Follows this structure: (Or the other way round limitation followed by possible 
   - Better manufacturing and modeling methods for the mini-ros robot, to balance the weight distribution across the wheels.
   - Better models of the robot will lead to more accurate conversions cmd_vel commands and the power needed to drive the motors.
 - Use ROS2, as ROS1 has reached end-of-life and ROS2 provides for more security and reliability with commercial use in mind.
+- Insufficient computational resource of the Raspberry Pi for handling more precise LiDAR maps (e.g. 1 cm grid size resolutions) and the premature termination of the exploration algorithm
+  - The Raspberry Pi board that I am using does not have enough memory for more precise LiDAR maps and I had to use grid size resolutions of size 10 cm.
+  - The result is that the Exploration algorithm does not identify all the frontiers and prematurely terminates the exploration as it sees there are no frontiers left to explore.
+- Currently I have three different power sources attached to the robot. One for the 4 TT motors, one for the Arduino board, and a final one for the Raspberry Pi board.
+  - I believe it should be possible to reduce it to one power source for powering the 3 different components of the robot.
+- It will be interesting to create a full model of the robot and simulate it in Gazebo.
 
-
-
-- Computation overload for raspberry pi, have to use LiDAR points of 10 cm, in future can have more precise mapping. This limitation leads to premature termination of exploration algorithm.
-- Full Gazebo simulation of robot
-- More efficient power usage
-### Stage 2 plans
-- Next stage work
+### Stage 2 Plans:
+- In stage 2, I aim to explore the following technologies:
+  - Omni-directional controls
+  - Nvidia Jetson Nano Developer Kit
+  - RGB-D Cameras
+  - State-of-the-art navigation algorithms
+  - Deep Learning Robotic perception and navigation algorithms
